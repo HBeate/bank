@@ -19,7 +19,6 @@ public class Account {
     public double getInterestOwing(double interest) {
         if (balance < 0) {
             interestOwing = balance * interest;
- //           this.balance += interestOwing;
         }
         return interestOwing;
     }
@@ -27,29 +26,17 @@ public class Account {
     public double getInterestEarned(double interest) {
         if (balance >= 0) {
             this.interestEarned = balance * interest;
- //           this.balance += this.interestEarned;
         }
         return this.interestEarned;
     }
 
-//    public double interest(double interest) {
-//        if (balance < 0 ) {
-//            return getInterestOwning(..)
-//        } else {
-//            return getInterestEarned(..)
-//        }
-//    }
-
-    public double getInterest(){
-        double interest = 0;
+    public double getInterest(double interest){
         if (balance >=0){
-            interest = getInterestEarned();
+            interest = getInterestEarned(interest);
         }else {
-            interest = getInterestOwing();
+            interest = getInterestOwing(interest);
         }return interest;
     }
-
-
 
     public double getBalance() {
         return this.balance;

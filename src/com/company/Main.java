@@ -18,6 +18,7 @@ public class Main {
 
 
         System.out.println("SAVINGS 1 ");
+        savings1.getInterestEarned()
         balance = savings1.getBalance();
         System.out.println("Your Balance is: " + balance);
         savings1.printBalance("Hypo balance: ");
@@ -33,7 +34,7 @@ public class Main {
         savings1.withdrawal(500);
         balance = savings1.getBalance();
         System.out.println("Your Balance is: " + balance);
-        double interest = savings1.getInterest();
+        savings1.getInterest();
         System.out.println("Interest: " + interest);
     }
 

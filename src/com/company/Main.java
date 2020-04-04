@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Account account1 = new Account(.05, 0.01, 500, -100);
+        Account account1 = new Account(.01, 0.001, 500, -100);
         SavingsAccount savings1 = new SavingsAccount(0, .01, 5000, -3000);
         LoanAccount loanAccount1 = new LoanAccount(.01, .00, -200000, 0);
 

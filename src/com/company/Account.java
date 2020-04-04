@@ -5,33 +5,51 @@ public class Account {
     private double interestEarned;
     private double balance;
     private double overdraftLimit;
+    private double getInterest;
 
     public Account(double interestOwing, double interestEarned, double balance, double overdraftLimit) {
         this.interestOwing = interestOwing;
         this.interestEarned = interestEarned;
         this.balance = balance;
         this.overdraftLimit = overdraftLimit;
+        this.getInterest = 0;
 
     }
 
     public double getInterestOwing(double interest) {
         if (balance < 0) {
             interestOwing = balance * interest;
-            System.out.println(interestOwing);
-            this.balance += interestOwing;
+ //           this.balance += interestOwing;
         }
         return interestOwing;
     }
 
     public double getInterestEarned(double interest) {
-        if (balance > 0) {
+        if (balance >= 0) {
             this.interestEarned = balance * interest;
-            System.out.println(this.interestEarned);
-            this.balance += this.interestEarned;
+ //           this.balance += this.interestEarned;
         }
-
         return this.interestEarned;
     }
+
+//    public double interest(double interest) {
+//        if (balance < 0 ) {
+//            return getInterestOwning(..)
+//        } else {
+//            return getInterestEarned(..)
+//        }
+//    }
+
+    public double getInterest(){
+        double interest = 0;
+        if (balance >=0){
+            interest = getInterestEarned();
+        }else {
+            interest = getInterestOwing();
+        }return interest;
+    }
+
+
 
     public double getBalance() {
         return this.balance;
@@ -48,9 +66,9 @@ public class Account {
 //TODO Error with overdraft limit -> wrong balance
     public void withdrawal(double withdrawalAmount) {
         double overdraft = this.balance - withdrawalAmount;
-        if (overdraft > this.overdraftLimit) {
+        if (overdraft >= this.overdraftLimit) {
             this.balance -= withdrawalAmount;
-            System.out.println("Your balance after withdrawing is " + withdrawalAmount + " is " + balance);
+            System.out.println("Your balance after withdrawing " + withdrawalAmount + " is " + balance);
         } else {
             System.out.println("Overdraft limited to " + this.overdraftLimit);
         }
